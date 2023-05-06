@@ -1,15 +1,35 @@
 <?php
 
-$letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'z',];
+function generaPsw()
+{
 
-$lettersUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z',];
+    $password = "";
 
-$numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',];
 
-$special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '\"', '<', '>', ',', '.', '/', '?'];
+    $lettere = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'z',];
 
-var_dump($letters, $numbers, $special, $lettersUpperCase)
+    $lettereUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z',];
 
+    $numeri = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0',];
+
+    $simboli = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '\"', '<', '>', ',', '.', '/', '?'];
+
+    for ($i = 0; $i < $_GET["lunghezzaPsw"]; $i++) {
+        $numero = rand(0, 3);
+        if ($numero === 0) {
+            $arrayScelto = $lettere;
+        } elseif ($numero === 1) {
+            $arrayScelto = $lettereUpperCase;
+        } elseif ($numero === 2) {
+            $arrayScelto = $numeri;
+        } else {
+            $arrayScelto = $simboli;
+        }
+        $password = $password . $arrayScelto[array_rand($arrayScelto)];
+    }
+    return $password;
+}
+$password = generaPsw();
 ?>
 
 
@@ -39,48 +59,52 @@ var_dump($letters, $numbers, $special, $lettersUpperCase)
 
     <!-- length password -->
     <main id="app_main">
-        <div class="container d-flex align-items-center justify-content-center">
-            <span class="p-3">Lunghezza Password:</span>
-            <input type="text" name="text" id="text" placeholder="Scegli numero di caratteri">
-        </div>
-        <!-- ./ length password -->
+        <form action="index.php" method="get">
+            <div class="container d-flex align-items-center justify-content-center">
+                <span class="p-3">Lunghezza Password:</span>
+                <input type="text" name="lunghezzaPsw" id="text" placeholder="Scegli numero di caratteri">
+            </div>
+            <!-- ./ length password -->
 
-        <!-- info set password -->
-        <div class="container d-flex justify-content-center p-2 ">
-            <span>Consenti ripetizioni di uno o più caratteri?</span>
-            <div class="d-flex">
-                <div>
-                    <form class="px-2">
-                        <input type="radio" id="html" name="fav_language" value="HTML">
+            <!-- info set password -->
+            <div class="container d-flex justify-content-center p-2 ">
+                <span>Consenti ripetizioni di uno o più caratteri?</span>
+                <div class="d-flex">
+                    <div>
+                        <input type="radio" id="" name="" value="">
                         <label for="Si">Si</label>
-                        <input type="radio" id="css" name="fav_language" value="CSS">
+                        <input type="radio" id="" name="" value="">
                         <label for="No">No</label>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container text-center ">
-            <h6 class="pt-2">Come deve essere composta la tua password?</h6>
-            <form class="pt-2">
-                <input type="checkbox" id="Letters" name="Letters" value="Bike">
-                <label for="Letters"> Lettere</label>
-                <input type="checkbox" id="Numbers" name="Numbers" value="Car">
-                <label for="Numbers"> Numeri</label>
-                <input type="checkbox" id="Symbols" name="Symbols" value="Car">
-                <label for="Symbols"> Simboli</label>
-            </form>
-        </div>
-        <!-- ./ info set password -->
+            <div class="container text-center ">
+                <h6 class="pt-2">Come deve essere composta la tua password?</h6>
+                <input type="checkbox" id="lettere" name="lettere" value="">
+                <label for="lettere"> Lettere</label>
+                <input type="checkbox" id="numeri" name="numeri" value="">
+                <label for="numeri"> Numeri</label>
+                <input type="checkbox" id="simboli" name="simboli" value="">
+                <label for="simboli"> Simboli</label>
+            </div>
+            <!-- ./ info set password -->
 
-        <!-- btn for send  -->
-        <div class="text-center pt-5">
-            <button type="button" class="btn btn-primary">Invia</button>
-            <button type="button" class="btn btn-secondary">Annulla</button>
-        </div>
-        <!-- btn for send  -->
+            <!-- btn for send  -->
+            <div class="text-center pt-5">
+                <button type="submit" class="btn btn-primary">Invia</button>
+                <button type="submit" class="btn btn-secondary">Annulla</button>
+            </div>
+            <!-- btn for send  -->
+        </form>
     </main>
 
+
     <footer id="app_footer">
+        <div class="container text-center w-50 ">
+            <div class="card bg-light">
+                <h4>la tua password è : <?php echo $password ?> </h4>
+            </div>
+        </div>
 
     </footer>
 
