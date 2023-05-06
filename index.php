@@ -1,7 +1,17 @@
 <?php
 
+$letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'z',];
+
+$lettersUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z',];
+
+$numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',];
+
+$special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '\"', '<', '>', ',', '.', '/', '?'];
+
+var_dump($letters, $numbers, $special, $lettersUpperCase)
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +24,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Generate Password</title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
