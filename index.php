@@ -1,37 +1,6 @@
 <?php
-
-function generaPsw()
-{
-
-    $password = "";
-
-
-    $lettere = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'z',];
-
-    $lettereUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z',];
-
-    $numeri = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0',];
-
-    $simboli = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', ';', ':', '\'', '\"', '<', '>', ',', '.', '/', '?'];
-
-    for ($i = 0; $i < $_GET["lunghezzaPsw"]; $i++) {
-        $numero = rand(0, 3);
-        if ($numero === 0) {
-            $arrayScelto = $lettere;
-        } elseif ($numero === 1) {
-            $arrayScelto = $lettereUpperCase;
-        } elseif ($numero === 2) {
-            $arrayScelto = $numeri;
-        } else {
-            $arrayScelto = $simboli;
-        }
-        $password = $password . $arrayScelto[array_rand($arrayScelto)];
-    }
-    return $password;
-}
-$password = generaPsw();
+include __DIR__ . "/functions.php";
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +28,7 @@ $password = generaPsw();
 
     <!-- length password -->
     <main id="app_main">
-        <form action="index.php" method="get">
+        <form action="result.php" method="get">
             <div class="container d-flex align-items-center justify-content-center">
                 <span class="p-3">Lunghezza Password:</span>
                 <input type="text" name="lunghezzaPsw" id="text" placeholder="Scegli numero di caratteri">
@@ -71,9 +40,9 @@ $password = generaPsw();
                 <span>Consenti ripetizioni di uno o più caratteri?</span>
                 <div class="d-flex">
                     <div>
-                        <input type="radio" id="" name="" value="">
+                        <input type="radio" id="" name="copia" value="1">
                         <label for="Si">Si</label>
-                        <input type="radio" id="" name="" value="">
+                        <input type="radio" id="" name="copia" value="0">
                         <label for="No">No</label>
                     </div>
                 </div>
@@ -98,15 +67,6 @@ $password = generaPsw();
         </form>
     </main>
 
-
-    <footer id="app_footer">
-        <div class="container text-center w-50 ">
-            <div class="card bg-light">
-                <h4>la tua password è : <?php echo $password ?> </h4>
-            </div>
-        </div>
-
-    </footer>
 
 </body>
 
