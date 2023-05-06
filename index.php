@@ -21,7 +21,7 @@
 
     <!-- title and subtitle -->
     <header id="app_header">
-        <div class="container text-center">
+        <div class="container text-center pt-5">
             <h1>Strong Password Generator</h1>
             <h2>Genera una password sicura</h2>
         </div>
@@ -31,17 +31,17 @@
     <!-- length password -->
     <main id="app_main">
         <div class="container d-flex align-items-center justify-content-center">
-            <span>Lunghezza Password:</span>
-            <input type="text" name="text" id="text" placeholder="Numero di caratteri">
+            <span class="p-3">Lunghezza Password:</span>
+            <input type="text" name="text" id="text" placeholder="Scegli numero di caratteri">
         </div>
         <!-- ./ length password -->
 
         <!-- info set password -->
-        <div class="container d-flex justify-content-center ">
+        <div class="container d-flex justify-content-center p-2 ">
             <span>Consenti ripetizioni di uno o più caratteri?</span>
             <div class="d-flex">
                 <div>
-                    <form>
+                    <form class="px-2">
                         <input type="radio" id="html" name="fav_language" value="HTML">
                         <label for="Si">Si</label>
                         <input type="radio" id="css" name="fav_language" value="CSS">
@@ -51,8 +51,8 @@
             </div>
         </div>
         <div class="container text-center ">
-            <h6>Come deve essere composta la tua password?</h6>
-            <form>
+            <h6 class="pt-2">Come deve essere composta la tua password?</h6>
+            <form class="pt-2">
                 <input type="checkbox" id="Letters" name="Letters" value="Bike">
                 <label for="Letters"> Lettere</label>
                 <input type="checkbox" id="Numbers" name="Numbers" value="Car">
@@ -64,7 +64,7 @@
         <!-- ./ info set password -->
 
         <!-- btn for send  -->
-        <div class="text-center">
+        <div class="text-center pt-5">
             <button type="button" class="btn btn-primary">Invia</button>
             <button type="button" class="btn btn-secondary">Annulla</button>
         </div>
